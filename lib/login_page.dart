@@ -42,10 +42,13 @@ class _LoginPageState extends State<LoginPage> {
         width: 200,
         height: 100,
         child: Center(
-          child: Text(
-            'Login Page',
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
+          child: Image.asset('assets/27214903.png'),
+          // child: Image.network(
+          //     'https://i.postimg.cc/PJ4DgYbQ/Screenshot-2022-12-27-214903.png'),
+          // child: Text(
+          //   'Login Page',
+          //   style: TextStyle(color: Colors.white, fontSize: 20),
+          // ),
         ),
       ),
     );
