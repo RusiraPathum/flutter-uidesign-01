@@ -9,11 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,27 +25,56 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey.withOpacity(0.4),
-                  blurRadius: 2.0,
-                  spreadRadius: 3.0),
-            ]),
-        width: 200,
-        height: 100,
-        child: Center(
-          child: Image.asset('assets/27214903.png'),
-          // child: Image.network(
-          //     'https://i.postimg.cc/PJ4DgYbQ/Screenshot-2022-12-27-214903.png'),
-          // child: Text(
-          //   'Login Page',
-          //   style: TextStyle(color: Colors.white, fontSize: 20),
-          // ),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )),
+            Container(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              width: 300,
+              child: Center(
+                child: Image.network(
+                    'https://i.postimg.cc/NMLxBCJs/Logo-removebg-preview.png'),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(children: [
+                Container(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: TextFormField(
+                    controller: _usernameController,
+                    decoration: InputDecoration(
+                        border: UnderlineInputBorder(),
+                        labelText: 'Enter your user name',
+                        hintText: 'User Name'),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: TextFormField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                        border: UnderlineInputBorder(),
+                        labelText: 'Enter your password',
+                        hintText: 'Password'),
+                  ),
+                )
+              ]),
+            )
+          ],
         ),
       ),
     );
