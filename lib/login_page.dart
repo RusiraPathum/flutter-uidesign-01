@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:uidesign01/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -105,8 +106,35 @@ class _LoginPageState extends State<LoginPage> {
     if (_usernameController.text == 'pathum' &&
         _passwordController.text == '123456') {
       print('Login success');
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HomePage(
+                    userName: _usernameController.text,
+                  )));
     } else {
       print('Login fail');
+      showAlertDialog(context);
     }
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text('Ok'));
+
+    AlertDialog alertDialog = AlertDialog(
+      title: Text('Error'),
+      content: Text('Wrong username and password'),
+      actions: [okButton],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alertDialog;
+        });
   }
 }
